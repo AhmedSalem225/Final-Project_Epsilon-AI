@@ -2,9 +2,32 @@ import streamlit as st
 from dummies import *
 import joblib
 import pandas as pd
-model = joblib.load("F:\E\FINAL__PROJECT\models\model.h5")
-scaler=joblib.load('scaler.h5')
-input_data=joblib.load('feature.h5')
+import requests
+import joblib
+import io
+
+# Function to download and load model from a raw GitHub URL
+def load_from_url(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Raise an error if the download failed
+    return io.BytesIO(response.content)
+
+# Define the raw URLs for your model, scaler, and feature files
+model_url = "https://github.com/AhmedSalem225/Final-Project_Epsilon-AI/raw/80b6387b2bcc4dd71d4bebc38cbda1c921752c6c/models/model.h5"
+scaler_url = "https://github.com/AhmedSalem225/Final-Project_Epsilon-AI/raw/80b6387b2bcc4dd71d4bebc38cbda1c921752c6c/models/scaler.h5"
+input_data_url = "https://github.com/AhmedSalem225/Final-Project_Epsilon-AI/raw/80b6387b2bcc4dd71d4bebc38cbda1c921752c6c/models/feature.h5"
+
+# Load the model and scaler
+model = joblib.load(load_from_url(model_url))
+scaler = joblib.load(load_from_url(scaler_url))
+input_data = joblib.load(load_from_url(input_data_url))
+
+
+
+
+
+
+
 st.title("ENHANCING TRAFFIC ACCIDENT CLASSIFICATION USING MACHINE LEARNING")
 st.info('The primary goal of this project is to classify traffic accidents into four severity levels, using machine learning techniques')
 st.info('Severity Level 1: Represents accidents of less severity. These incidents are minor, causing no serious damage or injury.')
