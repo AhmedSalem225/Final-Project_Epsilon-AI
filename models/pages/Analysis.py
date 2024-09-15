@@ -149,8 +149,14 @@ with tab1:
 
 with tab2:
 #============================================================ Correlation matrix
-    # Calculate the correlation matrix
-    correlation_matrix = df.corr()
+    # Filter columns that have float data type
+    float_columns = df.select_dtypes(include='float').columns
+    
+    # Create a new DataFrame with only float columns
+    df_float = df[float_columns]
+    
+    # Compute the correlation matrix for float columns
+    correlation_matrix = df_float.corr()
 
     # Create the heatmap
     st.markdown("<h1 style='text-align: center; color: white;'>Correlation Matrix Heatmap</h1>", unsafe_allow_html=True)
