@@ -7,7 +7,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.graph_objs as go
 
-df = pd.read_csv("E:\Final_project_Salem\FINAL__PROJECT\data\processed\Sampled_finish_Clean_Data.csv")
+
+url = "https://github.com/AhmedSalem225/Final-Project_Epsilon-AI/raw/f50d6074776bbc9a1792592029363a6d40c6a071/models/pages/Data/Sampled_finish_Clean_Data.csv"
+df = pd.read_csv(url)
 
 
 st.markdown("<h1 style='text-align: center; color: white;'>Choose Category</h1>", unsafe_allow_html=True)
