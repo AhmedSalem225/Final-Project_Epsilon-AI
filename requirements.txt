@@ -1,7 +1,18 @@
-# local package
--e .
-
-# external requirements
+streamlit
+streamlit-shadcn-ui
+streamlit-option-menu
+streamlit-extras
+statsmodels
+seaborn
+scikit-learn
+scikit-image
+plotly
+numpydoc
+numpy
+notebook
+matplotlib
+GitPython
+category-encoders
 click
 Sphinx
 coverage
